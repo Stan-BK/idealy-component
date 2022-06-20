@@ -1,0 +1,13 @@
+.wrap {
+  position: relative;
+}
+.card {
+  position: absolute;
+  left: 50%;
+  width: 100px;
+  height: 200px;
+  border: solid 1px #424242;
+  background-color: #fff;
+  transform-origin: left bottom;
+  text-align: right;
+}
