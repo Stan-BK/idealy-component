@@ -14,7 +14,8 @@
       v-for="(i, idx) of arr" 
       :key="i"
       class="card"
-      :style="{ transform: `rotate(${idx * 28}deg)`, zIndex: `${-idx}`}"
+      ref="card"
+      :style="{ zIndex: `${-idx}`}"
       >{{ i }}</div>
   </div>
   <script src="./index.js"></script>

@@ -1,13 +1,63 @@
+body {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
 .wrap {
   position: relative;
+  padding: 20px;
+  height: 100vh;
+  overflow: hidden;
 }
 .card {
   position: absolute;
   left: 50%;
   width: 100px;
-  height: 200px;
+  height: 150px;
   border: solid 1px #424242;
   background-color: #fff;
-  transform-origin: left bottom;
+  transform-origin: left 170px;
   text-align: right;
+  padding-right: 10px;
+  transition: all .4s;
+}
+.rotate-card:nth-child(2) {
+  transform: rotate(28deg);
+}
+.rotate-card:nth-child(3) {
+  transform: rotate(56deg);
+}
+.rotate-card:nth-child(4) {
+  transform: rotate(84deg);
+}
+.rotate-card:nth-child(5) {
+  transform: rotate(112deg);
+}
+.rotate-card:nth-child(6) {
+  transform: rotate(140deg);
+}
+.rotate-card:nth-child(7) {
+  transform: rotate(168deg);
+}
+.rotate-card:nth-child(8) {
+  transform: rotate(196deg);
+}
+.rotate-card:nth-child(9) {
+  transform: rotate(224deg);
+}
+.rotate-card:nth-child(10) {
+  transform: rotate(252deg);
+}
+.rotate-card:nth-child(11) {
+  transform: rotate(280deg);
+}
+.rotate-card:nth-child(12) {
+  transform: rotate(308deg);
+}
+.rotate-card:nth-child(13) {
+  transform: rotate(336deg);
+}
+.reset-card {
+  transform: rotate(360deg);
 }
