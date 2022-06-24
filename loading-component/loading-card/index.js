@@ -21,7 +21,7 @@ const vm = {
         })
       } else {
         cards.forEach(element => {
-          element.style.transition = 'all .4s'
+          element.style.transition = 'all .6s'
           element.className += ' rotate-card'
         })
       }
