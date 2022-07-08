@@ -1,0 +1,26 @@
+body {
+  background-color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading-game {
+  perspective: 1000px;
+}
+.loading-game>div {
+  position: absolute;
+  backface-visibility: hidden;
+  background-color: #fff;
+}
+.curRotate {
+  animation: rotate 2s -1s linear;
+}
+@keyframes rotate {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(450deg);
+  }
+}
