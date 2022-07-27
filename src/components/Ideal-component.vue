@@ -36,7 +36,7 @@ function translateX(from: number, to: number) {
   }
 }
 </script>
-<template>=
+<template>
   <svg width="300" height="50" viewBox="0 0 100 30">
     <text x="-30" y="25">
       <tspan fill="white" class="text">{{ text }}</tspan>
