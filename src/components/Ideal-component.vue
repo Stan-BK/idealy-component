@@ -2,6 +2,7 @@
 const IdealComponent = 'deal-component'
 let idx = 0
 const I = ref()
+const T = ref()
 const text = ref('')
 const isLoad = ref(false)
 function setName() {
@@ -18,7 +19,11 @@ watch(isLoad, () => {
   setTimeout(() => {
     I.value.classList.remove('I-sparkle')
     I.value.classList.add('I-recover')
-    setTimeout(() => translateX(120, -38), 1000)
+    I.value.classList.add('I-shadow')
+    T.value.classList.add('T-shadow')
+    setTimeout(() => translateX(120, -37), 1000)
+    I.value.addEventListener('transitionend', function() { 
+    })
   }, 1000)
 })
 
@@ -29,7 +34,7 @@ function translateX(from: number, to: number) {
 
   function changeX() {
     if (a >= b) {
-      a -= 2
+      a -= 3
       I.value.setAttribute('x', a)
       requestAnimationFrame(changeX)
     }
@@ -39,8 +44,8 @@ function translateX(from: number, to: number) {
 <template>
   <svg width="300" height="50" viewBox="0 0 100 30">
     <text x="-30" y="25">
-      <tspan fill="white" class="text">{{ text }}</tspan>
-      <tspan fill="white" class="I I-sparkle" ref="I">I</tspan>
+      <tspan fill="white" class="text" ref="T">{{ text }}</tspan>
+      <tspan fill="white" class="I I-sparkle" ref="I" >I</tspan>
     </text>
   </svg>
 </template>
@@ -48,13 +53,22 @@ function translateX(from: number, to: number) {
 .I {
   position: absolute;
   font-size: 25px;
-  transition: font-size 3s 1s;
+  transition: font-size 2s 2s, text-shadow 2s 2s;
+}
+.text {
+  transition: text-shadow 2s 2s;
 }
 .I-recover {
-  font-size: 45px;
+  font-size: 30px;
 }
 .I-sparkle {
   animation: sparkle .8s infinite; 
+}
+.I-shadow {
+  text-shadow: 1px 1px 8px #fff;
+}
+.T-shadow {
+  text-shadow: 1px 1px 4px #fff;
 }
 @keyframes sparkle {
   from {
