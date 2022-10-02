@@ -1,11 +1,16 @@
 body {
   background-color: #424242;
+  margin: 0;
 }
-
+* {
+  box-sizing: border-box;
+}
 #app {
   margin: 0;
-  padding: 10px;
+  padding: 0px;
   font-weight: normal;
+  width: 100vw;
+  height: 100vh;
 }
 
 a,
@@ -19,4 +24,9 @@ a,
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
+}
+
+.theme {
+  background-color: #ccc;
+  border: 5px #666 solid;
 }
