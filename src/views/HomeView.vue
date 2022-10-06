@@ -1,16 +1,25 @@
 <script setup lang="ts">
 import IdealComponent from '@/components/Ideal-component.vue'
+const pY = ref(0)
+function updatePY(y: number) {
+  pY.value = y
+}
 </script>
 <template>
   <header class="theme">
     <ideal-component></ideal-component>
   </header>
   <nav class="theme">
-
-  </nav>
-  <main class="theme">
     
-  </main>
+  </nav>
+  <div class="scrollbar theme">
+    <div class="bar theme" :style="{ top: `calc(${ pY * 100 }% - 50px)`}"></div>
+  </div>
+  <easier-scroll :scrollPercentY="pY" @scrollY="updatePY">
+    <main class="theme">
+      <div style="width: 100%; height: 3000px; background: linear-gradient(white, aqua)"></div>
+    </main>
+  </easier-scroll>
 </template>
 <style scoped>
 header {
@@ -20,6 +29,7 @@ header {
   border-left: none;
   border-bottom-right-radius: 20px;
   padding: 10px 20px 20px 35px;
+  user-select: none;
 }
 nav {
   position: fixed;
@@ -39,5 +49,43 @@ main {
   border-top-left-radius: 20px;
   border-bottom: none;
   border-right: none;
+}
+.scrollbar {
+  position: fixed;
+  bottom: 50px;
+  left: 300px;
+  width: 30px;
+  height: calc(100vh - 200px);
+  border-radius: 5px;
+}
+.bar {
+  position: absolute;
+  top: 0;
+  left: -15px;
+  width: 50px;
+  height: 100px;
+  border-radius: 20px;
+}
+.bar::before {
+  position: absolute;
+  content: "";
+  display: block;
+  left: 5px;
+  top: 33%;
+  width: 30px;
+  height: 5px;
+  background-color: #666;
+  border-radius: 2px;
+}
+.bar::after {
+  position: absolute;
+  content: "";
+  display: block;
+  left: 5px;
+  top: 66%;
+  width: 30px;
+  height: 5px;
+  background-color: #666;
+  border-radius: 2px;
 }
 </style>
