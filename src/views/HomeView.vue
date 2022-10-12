@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import IdealComponent from '@/components/Ideal-component.vue'
 
+const isHover = ref(false)
 const scrollbar = ref()
 const bar = ref()
 const pY = ref(0)
@@ -34,7 +35,7 @@ onMounted(() => {
     
   </nav>
   <div class="scrollbar-shape theme"></div>
-  <div class="scrollbar" ref="scrollbar">
+  <div class="scrollbar border" ref="scrollbar" :style="{ borderColor: isHover ? '#666a' : '#6662' }" @mouseenter="isHover = true" @mouseleave="isHover = false">
     <div class="bar theme" :style="{ top: `calc(${ pY * 100 }% - 50px)`}" ref="bar"></div>
   </div>
   <easier-scroll :scrollPercentY="pY" @scrollY="updatePY">
@@ -43,7 +44,7 @@ onMounted(() => {
     </main>
   </easier-scroll>
 </template>
-<style scoped>
+<style scoped lang="less">
 header {
   position: fixed;
   height: 80px;
@@ -86,10 +87,12 @@ main {
   left: 290px;
   width: 50px;
   height: calc(100vh - 220px);
-  border-width: 5px;
+  border: 5px solid transparent;
+  transition: border-color .5s;
 }
 .bar {
   position: absolute;
+  left: -5px;
   top: 0;
   width: 50px;
   height: 100px;
@@ -119,5 +122,10 @@ main {
   background-color: #666;
   border-radius: 2px;
   pointer-events: none;
+}
+.border {
+  background-color: transparent !important;
+  border-radius: 5px;
+  border-style: dashed !important;
 }
 </style>
